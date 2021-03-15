@@ -1,0 +1,17 @@
+.shedule {
+    width: 97%;
+    margin: 50px 20px;
+    border-collapse: collapse;
+    font-family: 'Merriweather', serif;
+}
+
+.shedule tr > th, td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: aliceblue;
+    font-size: 26px;
+}
+
+
+

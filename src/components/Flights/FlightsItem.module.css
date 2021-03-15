@@ -1,0 +1,17 @@
+tr > td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+}
+
+
+.arrived {
+    color: forestgreen;
+}
+
+.determinate {
+    color: red;
+}
