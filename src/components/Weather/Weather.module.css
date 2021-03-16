@@ -1,0 +1,25 @@
+.widget {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    width: 300px;
+}
+
+.icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon img {
+    width: 100px;
+}
+
+.temp {
+    font-size: 45px;
+    color: white;
+}
+
+.city {
+    color: white;
+    font-size: 35px;
+}

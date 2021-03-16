@@ -8,6 +8,26 @@ export type FlightType = {
     terminal: string
 }
 
+export type WeatherType = {
+    "weather": [
+        {
+            "id": number,
+            "main": string,
+            "description": string,
+            "icon": string
+        }
+    ],
+    "main": {
+        "temp": number
+        "feels_like": number
+        "temp_min": number
+        "temp_max": number
+        "pressure": number
+        "humidity": number
+    },
+    "name": string,
+}
+
 
 // boarding_stop_time: 0
 // carrier: "Ukraine International Airlines"
