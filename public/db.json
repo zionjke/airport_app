@@ -80,6 +80,141 @@
       "scheduled_time": "03:40",
       "source_dest_airport": "Хургада",
       "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Ukraine International Airlines",
+      "flightnum": "PS 392",
+      "sched": "приліт о 03:10",
+      "scheduled_time": "03:10",
+      "source_dest_airport": "Делі",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "приліт о 03:40",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Wind Rose",
+      "flightnum": "7W 126",
+      "sched": "прибув",
+      "scheduled_time": "08:00",
+      "source_dest_airport": "Одеса",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4490",
+      "sched": "прибув",
+      "scheduled_time": "08:00",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Ukraine International Airlines",
+      "flightnum": "PS 392",
+      "sched": "приліт о 03:10",
+      "scheduled_time": "03:10",
+      "source_dest_airport": "Делі",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "приліт о 03:40",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Wind Rose",
+      "flightnum": "7W 126",
+      "sched": "прибув",
+      "scheduled_time": "08:00",
+      "source_dest_airport": "Одеса",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4490",
+      "sched": "прибув",
+      "scheduled_time": "08:00",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "прибув",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "приліт о 03:45",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "затримка",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "затримка",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "прибув",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Ukraine International Airlines",
+      "flightnum": "PS 392",
+      "sched": "приліт о 03:10",
+      "scheduled_time": "03:10",
+      "source_dest_airport": "Делі",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4624",
+      "sched": "приліт о 03:40",
+      "scheduled_time": "03:40",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
     }
   ]
 }

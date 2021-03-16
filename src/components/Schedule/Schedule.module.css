@@ -1,5 +1,5 @@
 .shedule {
-    width: 97%;
+    width: 98%;
     margin: 50px 20px;
     border-collapse: collapse;
     font-family: 'Merriweather', serif;
@@ -13,5 +13,12 @@
     font-size: 26px;
 }
 
+.headerTitle {
+    font-weight: bold;
+    color: #FFDB00;
+    letter-spacing: 6px;
+    font-size: 50px;
+    margin: 0;
+}
 
 

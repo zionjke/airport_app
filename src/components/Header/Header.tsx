@@ -10,7 +10,6 @@ export const Header: React.FC<HeaderProps> = () => {
         <div className={style.header}>
             <img className={style.headerIcon} src={kloIcon} alt="Klo Icon"/>
             <img className={style.airplaneIcon} src={airPlaneIcon} alt=""/>
-            <p className={style.headerTitle}>Приліт</p>
         </div>
     );
 };
