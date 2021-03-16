@@ -4,6 +4,7 @@ import airPlaneIcon from '../../assets/airplane.png'
 import style from './Header.module.css'
 import {Weather} from "../Weather/Weather";
 
+
 type HeaderProps = {};
 
 export const Header: React.FC<HeaderProps> = () => {

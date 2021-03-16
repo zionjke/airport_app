@@ -16,7 +16,7 @@ export const Schedule: React.FC<ScheduleProps> = () => {
         })
         const intervalId = setInterval(() => {
             setSwitchLang(!switchLang)
-        }, 10000)
+        }, 60000)
 
         return () => clearInterval(intervalId)
 

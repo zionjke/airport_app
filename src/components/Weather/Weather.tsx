@@ -16,15 +16,27 @@ export const Weather: React.FC<Props> = (props) => {
 
     let iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
 
-
-    useEffect(() => {
-        axios.get<WeatherType>(`http://api.openweathermap.org/data/2.5/weather?q=Boryspil%E2%80%99,UA&APPID=${APP_KEY}`).then(({data}) => {
+    const getWeatherData = async (): Promise<void> => {
+        try {
+            const {data} = await axios.get<WeatherType>(`http://api.openweathermap.org/data/2.5/weather?q=Boryspil%E2%80%99,UA&APPID=${APP_KEY}`)
             setCity(data.name)
             setTemperature(Math.round(data.main.temp - 273.15))
             setIconCode(data.weather[0].icon)
             setDiscription(data.weather[0].description)
-        })
-    }, [iconCode,temperature])
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    useEffect(() => {
+        getWeatherData()
+        const interval = setInterval(() => {
+            getWeatherData()
+        }, 1800000)
+
+        return () => clearInterval(interval)
+    }, [])
+
 
     return (
         <div className={styles.widget}>
