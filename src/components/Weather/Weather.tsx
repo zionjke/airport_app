@@ -40,14 +40,16 @@ export const Weather: React.FC<Props> = (props) => {
 
     return (
         <div className={styles.widget}>
+            <div style={{display: "flex", flexDirection: 'column',justifyContent:"space-around"}}>
+                <div className={styles.temp}>
+                    {temperature}<span>&#8451;</span>
+                </div>
+                {/*<div className={styles.city}>*/}
+                {/*    {city}*/}
+                {/*</div>*/}
+            </div>
             <div className={styles.icon}>
                 <img src={iconUrl} alt="Weather Icon"/>
-            </div>
-            <div className={styles.temp}>
-                {temperature}<span>&#8451;</span>
-            </div>
-            <div className={styles.city}>
-                {city}
             </div>
         </div>
     );

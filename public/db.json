@@ -2,6 +2,15 @@
   "flights": [
     {
       "boarding_stop_time": 0,
+      "carrier": "Azur Air Ukraine",
+      "flightnum": "QU 4490",
+      "sched": "прибув",
+      "scheduled_time": "08:00",
+      "source_dest_airport": "Хургада",
+      "terminal": "D"
+    },
+    {
+      "boarding_stop_time": 0,
       "carrier": "Ukraine International Airlines",
       "flightnum": "PS 392",
       "sched": "приліт о 03:10",

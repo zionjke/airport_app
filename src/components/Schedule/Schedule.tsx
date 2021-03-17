@@ -12,7 +12,7 @@ export const Schedule: React.FC<ScheduleProps> = () => {
     const [flights, setFLights] = useState<Array<FlightType>>([])
     useEffect(() => {
         axios.get('http://localhost:3005/flights').then(({data}) => {
-            setFLights(data.slice(0,13))
+            setFLights(data)
         })
         const intervalId = setInterval(() => {
             setSwitchLang(!switchLang)
@@ -21,6 +21,9 @@ export const Schedule: React.FC<ScheduleProps> = () => {
         return () => clearInterval(intervalId)
 
     }, [switchLang])
+
+    const sortFlights = flights.sort(((a, b) => a.scheduled_time.localeCompare(b.scheduled_time)))
+
 
     return (
         <>
@@ -35,8 +38,8 @@ export const Schedule: React.FC<ScheduleProps> = () => {
                     <th>{switchLang ? 'Status' : 'Статус'}</th>
                 </tr>
                 {
-                    flights.map(flight => (
-                        <FlightsItem key={flight.scheduled_time}
+                    sortFlights.map((flight,i) => (
+                        <FlightsItem key={i}
                                      carrier={flight.carrier}
                                      flightnum={flight.flightnum}
                                      sched={flight.sched}

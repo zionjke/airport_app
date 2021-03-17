@@ -1,18 +1,17 @@
 .widget {
     display: flex;
-    flex-direction: column;
-    margin-right: 50px;
     width: 300px;
     font-family: 'Merriweather', 'Merriweather', serif;
 }
 
 .icon {
+    margin-left: 15px;
     display: flex;
     justify-content: flex-end;
 }
 
 .icon img {
-    width: 130px;
+    width: 150px;
 }
 
 .temp {
