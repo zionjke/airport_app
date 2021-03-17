@@ -1,6 +1,6 @@
 import React from 'react';
 import kloIcon from '../../assets/kloIcon.png'
-import airPlaneIcon from '../../assets/airplane.png'
+import airPlaneIcon from '../../assets/source.gif'
 import style from './Header.module.css'
 import {Weather} from "../Weather/Weather";
 
