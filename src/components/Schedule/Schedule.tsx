@@ -11,7 +11,7 @@ export const Schedule: React.FC<ScheduleProps> = () => {
     const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [flights, setFLights] = useState<Array<FlightType>>([])
     useEffect(() => {
-        axios.get('http://localhost:3005/flights').then(({data}) => {
+        axios.get('https://airportserver.herokuapp.com/flights').then(({data}) => {
             setFLights(data)
         })
         const intervalId = setInterval(() => {

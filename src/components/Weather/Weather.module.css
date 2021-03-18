@@ -1,25 +1,39 @@
 .widget {
     display: flex;
+    flex-direction: column;
     width: 300px;
     font-family: 'Merriweather', 'Merriweather', serif;
 }
 
-.icon {
-    margin-left: 15px;
-    display: flex;
-    justify-content: flex-end;
-}
 
-.icon img {
-    width: 150px;
-}
 
 .temp {
+    position: relative;
+    display: flex;
     font-size: 45px;
     color: white;
 }
 
-.city {
+.icon {
+    position: absolute;
+    top: -23px;
+    left: 42px;
+    width: 75px;
+    height: 75px;
+}
+
+.temp span {
+    font-size: 21px;
+}
+
+.date {
     color: white;
-    font-size: 35px;
+    margin-top: 10px;
+    font-size: 26px;
+    text-align: left;
+}
+
+.date:first-letter {
+    display: inline-block;
+    text-transform: uppercase;
 }

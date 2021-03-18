@@ -2,6 +2,13 @@ import React, {useEffect, useState} from 'react';
 import styles from './Weather.module.css'
 import {WeatherType} from "../../types/types";
 import axios from "axios";
+import moment from "moment";
+import 'moment/locale/uk'
+import 'moment/locale/en-gb'
+import 'moment-timezone';
+
+
+
 
 
 const APP_KEY = '18ca32c19c644d60dbf768c4dbde0f90'
@@ -9,6 +16,7 @@ const APP_KEY = '18ca32c19c644d60dbf768c4dbde0f90'
 type Props = {};
 
 export const Weather: React.FC<Props> = (props) => {
+    const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [city, setCity] = useState<string>('')
     const [temperature, setTemperature] = useState<number>()
     const [description, setDiscription] = useState<string>('')
@@ -28,28 +36,30 @@ export const Weather: React.FC<Props> = (props) => {
         }
     }
 
+    console.log(temperature)
+
     useEffect(() => {
         getWeatherData()
-        const interval = setInterval(() => {
-            getWeatherData()
-        }, 1800000)
+        let interval = setInterval(() => {
+            setSwitchLang(!switchLang)
+        }, 60000)
 
         return () => clearInterval(interval)
-    }, [])
+    }, [switchLang])
 
 
     return (
         <div className={styles.widget}>
-            <div style={{display: "flex", flexDirection: 'column',justifyContent:"space-around"}}>
                 <div className={styles.temp}>
                     {temperature}<span>&#8451;</span>
+                    <img className={styles.icon} src={iconUrl} alt="Weather Icon"/>
                 </div>
-                {/*<div className={styles.city}>*/}
-                {/*    {city}*/}
-                {/*</div>*/}
-            </div>
-            <div className={styles.icon}>
-                <img src={iconUrl} alt="Weather Icon"/>
+            <div className={styles.date}>
+                {
+                  switchLang
+                      ?  moment().locale("en-GB").format('MMMM Do YYYY, h:mm a')
+                      : moment().locale("uk").format('MMMM Do YYYY, h:mm a')
+                }
             </div>
         </div>
     );
