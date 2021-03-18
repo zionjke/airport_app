@@ -58,7 +58,7 @@ export const Weather: React.FC<Props> = (props) => {
                 {
                   switchLang
                       ?  moment().locale("en-GB").format('MMMM Do YYYY, h:mm a')
-                      : moment().locale("uk").format('MMMM Do YYYY, h:mm a')
+                      : moment().locale("uk").format('MMMM Do YYYY, HH:mm ')
                 }
             </div>
         </div>
