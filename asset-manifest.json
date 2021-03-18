@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/airport_app/static/css/main.af80ae6b.chunk.css",
+    "main.js": "/airport_app/static/js/main.71c9a5c1.chunk.js",
+    "main.js.map": "/airport_app/static/js/main.71c9a5c1.chunk.js.map",
+    "runtime-main.js": "/airport_app/static/js/runtime-main.2d7bc825.js",
+    "runtime-main.js.map": "/airport_app/static/js/runtime-main.2d7bc825.js.map",
+    "static/js/2.e1edc5fa.chunk.js": "/airport_app/static/js/2.e1edc5fa.chunk.js",
+    "static/js/2.e1edc5fa.chunk.js.map": "/airport_app/static/js/2.e1edc5fa.chunk.js.map",
+    "static/js/3.2c323565.chunk.js": "/airport_app/static/js/3.2c323565.chunk.js",
+    "static/js/3.2c323565.chunk.js.map": "/airport_app/static/js/3.2c323565.chunk.js.map",
+    "index.html": "/airport_app/index.html",
+    "static/css/main.af80ae6b.chunk.css.map": "/airport_app/static/css/main.af80ae6b.chunk.css.map",
+    "static/js/2.e1edc5fa.chunk.js.LICENSE.txt": "/airport_app/static/js/2.e1edc5fa.chunk.js.LICENSE.txt",
+    "static/media/source.e18e0fb6.gif": "/airport_app/static/media/source.e18e0fb6.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d7bc825.js",
+    "static/js/2.e1edc5fa.chunk.js",
+    "static/css/main.af80ae6b.chunk.css",
+    "static/js/main.71c9a5c1.chunk.js"
+  ]
+}
