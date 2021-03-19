@@ -26,7 +26,7 @@ export const Weather: React.FC<Props> = (props) => {
 
     const getWeatherData = async (): Promise<void> => {
         try {
-            const {data} = await axios.get<WeatherType>(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Boryspil%E2%80%99,UA&APPID=${APP_KEY}`)
+            const {data} = await axios.get<WeatherType>(`http://api.openweathermap.org/data/2.5/weather?q=Boryspil%E2%80%99,UA&APPID=${APP_KEY}`)
             setCity(data.name)
             setTemperature(Math.round(data.main.temp - 273.15))
             setIconCode(data.weather[0].icon)
