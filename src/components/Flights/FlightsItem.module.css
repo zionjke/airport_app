@@ -16,3 +16,11 @@ tr > td {
 .determinate {
     color: red;
 }
+
+.terminal {
+    color: #FFDB00;
+    border: 1px solid #FFDB00 ;
+    padding: 6px;
+    border-radius: 50%;
+    font-size: 26px;
+}

@@ -3,9 +3,9 @@ import styles from './FlightsItem.module.css'
 
 type Props = {
     carrier: string
-    flightnum: string
-    sched: string
-    scheduled_time: string
+    flightNum: string
+    status: string
+    scheduledTime: string
     source_dest_airport: string
     terminal: string
 };
@@ -13,9 +13,9 @@ export const FlightsItem: React.FC<Props> = (props) => {
 
     let classForItem = '';
 
-    if (props.sched === 'прибув') {
+    if (props.status === 'прибув') {
         classForItem = styles.arrived
-    } else if (props.sched === 'затримка') {
+    } else if (props.status === 'затримка') {
         classForItem = styles.determinate
     } else {
         classForItem = ''
@@ -23,12 +23,12 @@ export const FlightsItem: React.FC<Props> = (props) => {
 
     return (
         <tr>
-            <td>{props.flightnum}</td>
-            <td>{props.scheduled_time}</td>
+            <td>{props.flightNum}</td>
+            <td>{props.scheduledTime}</td>
             <td style={{color: '#FFDB00'}}>{props.source_dest_airport}</td>
             <td>{props.carrier}</td>
-            <td>{props.terminal}</td>
-            <td className={classForItem}>{props.sched}</td>
+            <td><span className={styles.terminal}>{props.terminal}</span></td>
+            <td className={classForItem}>{props.status}</td>
         </tr>
     );
 };

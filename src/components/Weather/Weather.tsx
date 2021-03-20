@@ -36,7 +36,6 @@ export const Weather: React.FC<Props> = (props) => {
         }
     }
 
-    console.log(temperature)
 
     useEffect(() => {
         getWeatherData()

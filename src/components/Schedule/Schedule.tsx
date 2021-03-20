@@ -3,9 +3,16 @@ import styles from './Schedule.module.css'
 import {FlightType} from "../../types/types";
 import {FlightsItem} from "../Flights/FlightsItem";
 import axios from "axios";
+import arrivalIcon from '../../assets/arrival_yellow.svg'
+import {TableTitle} from "./TableTitle/TableTitle";
+import {TableHead} from "./TableHead/TableHead";
+
+const API_KEY = '3fe0e8-91926e&iataCode'
 
 
 type ScheduleProps = {};
+
+
 
 export const Schedule: React.FC<ScheduleProps> = () => {
     const [switchLang, setSwitchLang] = useState<boolean>(false)
@@ -27,23 +34,16 @@ export const Schedule: React.FC<ScheduleProps> = () => {
 
     return (
         <>
-            <h1 className={styles.headerTitle}>{switchLang ? 'Departure' : 'Приліт'}</h1>
+            <TableTitle icon={arrivalIcon} title={switchLang ? 'Arrival' : 'Приліт'}/>
             <table className={styles.shedule}>
-                <tr>
-                    <th>{switchLang ? 'Flight' : 'Рейс'}</th>
-                    <th>{switchLang ? 'Time' : 'Час'}</th>
-                    <th>{switchLang ? 'Destination' : 'Призначення'}</th>
-                    <th>{switchLang ? 'Carrier' : 'Перевізник'}</th>
-                    <th>{switchLang ? 'Terminal' : 'Термінал'}</th>
-                    <th>{switchLang ? 'Status' : 'Статус'}</th>
-                </tr>
+                <TableHead switchLang={switchLang}/>
                 {
-                    sortFlights.map((flight,i) => (
+                    sortFlights.map((flight, i) => (
                         <FlightsItem key={i}
                                      carrier={flight.carrier}
-                                     flightnum={flight.flightnum}
-                                     sched={flight.sched}
-                                     scheduled_time={flight.scheduled_time}
+                                     flightNum={flight.flightnum}
+                                     status={flight.sched}
+                                     scheduledTime={flight.scheduled_time}
                                      source_dest_airport={flight.source_dest_airport}
                                      terminal={flight.terminal}/>
                     ))

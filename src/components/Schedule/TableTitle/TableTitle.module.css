@@ -1,0 +1,19 @@
+.tableTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-weight: bold;
+    color: #FFDB00;
+    letter-spacing: 6px;
+    font-size: 50px;
+    margin: 0;
+}
+
+.icon {
+    margin-left: 15px;
+    width: 70px;
+    height: 70px;
+}
