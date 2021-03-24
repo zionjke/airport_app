@@ -51,6 +51,13 @@ export type AirlineType = {
     nameCountry: string
 }
 
+export type AirportType = {
+    airportId: number
+    codeIataAirport: string
+    codeIataCity: string
+    nameAirport: string
+}
+
 export type WeatherType = {
     "weather": [
         {
