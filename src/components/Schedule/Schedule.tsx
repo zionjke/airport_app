@@ -19,18 +19,18 @@ export const Schedule: React.FC<ScheduleProps> = () => {
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
     const [cities, setCities] = useState<Array<CitiesType>>([])
     const [airlines, setAirlines] = useState<Array<AirlineType>>([])
+    const [cities2, setCities2] = useState([])
 
     useEffect(() => {
         let now = moment().format('YYYY-MM-DDTHH:mm:ss')
         axios.get(` http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival&arr_terminal=D`)
             .then(({data}) => {
-                setFLights(data)
-                const filteredState = data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now))
-                setFLights(filteredState.slice(0, 25))
+                setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)).slice(0,25))
             })
         axios.get(`https://aviation-edge.com/v2/public/cityDatabase?key=${API_KEY}&lang=uk`)
             .then(({data}) => setCities(data))
         axios.get(`https://aviation-edge.com/v2/public/airlineDatabase?key=${API_KEY}`).then(({data}) => setAirlines(data))
+        // axios.get('http://airlabs.co/api/v6/cities').then(({data}) => data)
         const intervalId = setInterval(() => {
             setSwitchLang(!switchLang)
         }, 60000)
@@ -40,7 +40,7 @@ export const Schedule: React.FC<ScheduleProps> = () => {
     }, [switchLang])
 
     console.log(flights)
-    console.log(airlines)
+
 
 
     return (

@@ -19,6 +19,7 @@ export type ArrivalFlightType = {
 export type ArrivaAirlineType = {
     name: string
     iataCode: string
+    estimatedTime:string
 }
 
 export type ArrivalType = {
