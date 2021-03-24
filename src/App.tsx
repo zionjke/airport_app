@@ -24,7 +24,9 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <Schedule cities={cities} airlines={airlines} airports={airports}/>
+            <Schedule cities={cities}
+                      airlines={airlines}
+                      airports={airports}/>
         </div>
     );
 }

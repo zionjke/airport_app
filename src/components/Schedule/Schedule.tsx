@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Schedule.module.css'
-import {AirlineType, AirportType, API_KEY, ArrivalFlightType, CitiesType, FlightType} from "../../types/types";
+import {AirlineType, AirportType, API_KEY, ArrivalFlightType, CitiesType, } from "../../types/types";
 import {FlightsItem} from "../Flights/FlightsItem";
 import axios from "axios";
 import arrivalIcon from '../../assets/arrival_yellow.svg'
