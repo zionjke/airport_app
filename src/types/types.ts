@@ -19,12 +19,13 @@ export type ArrivalFlightType = {
 export type ArrivaAirlineType = {
     name: string
     iataCode: string
-    estimatedTime:string
+    estimatedTime:string | null
 }
 
 export type ArrivalType = {
     scheduledTime: string
     terminal: string
+    estimatedTime:string
 }
 
 export type DepartureType = {

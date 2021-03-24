@@ -8,6 +8,7 @@ type Props = {
     flightNum: string
     switchLang: boolean
     status: string
+    estimatedTime: string
     scheduledTime: string
     destination: string
     terminal: string
@@ -30,10 +31,24 @@ export const FlightsItem: React.FC<Props> = (props) => {
         <tr>
             <td>{props.flightNum}</td>
             <td>{moment(props.scheduledTime).format('HH:mm')}</td>
-            <td style={{color: '#FFDB00'}}>{props.city ?  props.city?.nameCity  : props.destination}</td>
+            <td style={{color: '#FFDB00'}}>
+                {
+                    props.switchLang
+                        ? props.city?.nameCity
+                        : props.city?.translations.city.ukrainian}
+            </td>
             <td>{props.airline?.nameAirline}</td>
             <td><span className={styles.terminal}>{props.terminal}</span></td>
-            <td className={classForItem}>{props.status}</td>
+            <td className={classForItem}>
+                { props.switchLang ?
+                    (props.estimatedTime !== null
+                        ? `Expected at ${moment(props.estimatedTime).format('HH:mm')}`
+                        : props.status ) :
+                        ((props.estimatedTime !== null
+                        ? `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`
+                        : 'За розкладом' ))
+                }
+            </td>
         </tr>
     );
 };

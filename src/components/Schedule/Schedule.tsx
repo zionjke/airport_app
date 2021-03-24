@@ -22,7 +22,7 @@ export const Schedule: React.FC<ScheduleProps> = () => {
     const [airports, setAirports] = useState<Array<AirportType>>([])
 
     useEffect(() => {
-        let now = moment().subtract(20,'minutes').format('YYYY-MM-DDTHH:mm:ss')
+        let now = moment().format('YYYY-MM-DDTHH:mm:ss')
         axios.get(` http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival&arr_terminal=D`)
             .then(({data}) => {
                 setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)).slice(0, 25))
@@ -38,6 +38,9 @@ export const Schedule: React.FC<ScheduleProps> = () => {
         return () => clearInterval(intervalId)
 
     }, [switchLang])
+
+
+    console.log(flights)
 
 
 
@@ -63,7 +66,8 @@ export const Schedule: React.FC<ScheduleProps> = () => {
                                              status={flight.status}
                                              scheduledTime={flight.arrival.scheduledTime}
                                              destination={flight.departure.iataCode}
-                                             terminal={flight.arrival.terminal}/>
+                                             terminal={flight.arrival.terminal}
+                                             estimatedTime={flight.arrival.estimatedTime}/>
                             )
 
                         }
