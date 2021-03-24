@@ -1,11 +1,53 @@
-export type FlightType = {
-    boarding_stop_time: number
-    carrier: string
-    flightnum: string
-    sched: string
-    scheduled_time: string
-    source_dest_airport: string
+// export type FlightType = {
+//     boarding_stop_time: number
+//     carrier: string
+//     flightnum: string
+//     sched: string
+//     scheduled_time: string
+//     source_dest_airport: string
+//     terminal: string
+// }
+
+export type ArrivalFlightType = {
+    airline: ArrivaAirlineType
+    arrival: ArrivalType
+    departure: DepartureType
+    flight: FlightType
+    status: string
+}
+
+export type ArrivaAirlineType = {
+    name: string
+    iataCode: string
+}
+
+export type ArrivalType = {
+    scheduledTime: string
     terminal: string
+}
+
+export type DepartureType = {
+    iataCode: string
+}
+
+export type FlightType = {
+    iataNumber: string
+}
+
+export type CitiesType = {
+    codeIataCity: string
+    nameCity: string
+    translations: {
+        city:{
+            ukrainian:string
+        }
+    }
+}
+
+export type AirlineType = {
+    codeIataAirline: string
+    nameAirline: string
+    nameCountry: string
 }
 
 export type WeatherType = {
