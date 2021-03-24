@@ -8,6 +8,8 @@
 //     terminal: string
 // }
 
+export const API_KEY = '3fe0e8-91926e'
+
 export type ArrivalFlightType = {
     airline: ArrivaAirlineType
     arrival: ArrivalType

@@ -2,46 +2,29 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {Schedule} from "./components/Schedule/Schedule";
+import {AirlineType, AirportType, API_KEY, CitiesType} from "./types/types";
+import axios from "axios";
+
 
 
 
 function App() {
+    const [cities, setCities] = useState<Array<CitiesType>>([])
+    const [airlines, setAirlines] = useState<Array<AirlineType>>([])
+    const [airports, setAirports] = useState<Array<AirportType>>([])
 
-    // const [state, setState] = useState([])
-    // const [cities, setCities] = useState([])
-    // const API_KEY = '3fe0e8-91926e'
-    // // let now = moment().format()
-    // // console.log(now)
-    //
-    //
-    // useEffect(() => {
-    //     let now = moment().format()
-    //     axios.get(` http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival`)
-    //         .then(({data}) => {
-    //             const filteredState = data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now))
-    //             setState(filteredState)
-    //             console.log(filteredState)
-    //         })
-    //     axios.get(`https://aviation-edge.com/v2/public/cityDatabase?key=${API_KEY}`)
-    //         .then(({data}) => {
-    //             setCities(data)
-    //             console.log(data.filter((item: { codeIso2Country: string; }) => item.codeIso2Country === 'UA'))
-    //         })
-    // }, [])
-    // const iataCode = 'DOH'
-    // const cityName = cities.find(({codeIataCity}) => codeIataCity === iataCode)
-    // console.log(cityName)
-    //
-    // // console.log(state)
-    // // // @ts-ignore
-    // // const filteredState = state.filter(item => (item.arrival.scheduledTime >= now))
-    // // console.log(filteredState)
 
+    useEffect(() => {
+        axios.get(`https://aviation-edge.com/v2/public/cityDatabase?key=${API_KEY}&lang=uk`)
+            .then(({data}) => setCities(data))
+        axios.get(`https://aviation-edge.com/v2/public/airlineDatabase?key=${API_KEY}`).then(({data}) => setAirlines(data))
+        axios.get(`https://aviation-edge.com/v2/public/airportDatabase?key=${API_KEY}`).then(({data}) => setAirports(data))
+    },[])
 
     return (
         <div className="App">
             <Header/>
-            <Schedule/>
+            <Schedule cities={cities} airlines={airlines} airports={airports}/>
         </div>
     );
 }
