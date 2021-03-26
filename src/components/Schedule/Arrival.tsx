@@ -16,13 +16,13 @@ type ScheduleProps = {
 };
 
 
-export const Schedule: React.FC<ScheduleProps> = ({cities,airports,airlines}) => {
+export const Arrival: React.FC<ScheduleProps> = ({cities,airports,airlines}) => {
     const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
 
     useEffect(() => {
         let now = moment().format('YYYY-MM-DDTHH:mm:ss')
-        axios.get(` http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival&arr_terminal=D`)
+        axios.get(` http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival`)
             .then(({data}) => {
                 setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)).slice(0, 25))
             })
@@ -33,9 +33,6 @@ export const Schedule: React.FC<ScheduleProps> = ({cities,airports,airlines}) =>
         return () => clearInterval(intervalId)
 
     }, [switchLang])
-
-
-    console.log(flights)
 
 
     return (

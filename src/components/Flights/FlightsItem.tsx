@@ -31,22 +31,21 @@ export const FlightsItem: React.FC<Props> = (props) => {
         <tr>
             <td>{props.flightNum}</td>
             <td>{moment(props.scheduledTime).format('HH:mm')}</td>
-            <td style={{color: '#FFDB00'}}>
+            <td style={{color: '#FFDB00'}}>{props.city?.nameCity}</td>
+            <td>{props.airline?.nameAirline}</td>
+            <td><span className={props.terminal === 'F' ? styles.terminal_f : styles.terminal}>{props.terminal}</span>
+            </td>
+            <td className={classForItem}>
                 {
                     props.switchLang
-                        ? props.city?.nameCity
-                        : props.city?.translations.city.ukrainian}
-            </td>
-            <td>{props.airline?.nameAirline}</td>
-            <td><span className={styles.terminal}>{props.terminal}</span></td>
-            <td className={classForItem}>
-                { props.switchLang ?
-                    (props.estimatedTime !== null
-                        ? `Expected at ${moment(props.estimatedTime).format('HH:mm')}`
-                        : props.status ) :
+                        ?
+                        (props.estimatedTime !== null
+                            ? `Expected at ${moment(props.estimatedTime).format('HH:mm')}`
+                            : props.status)
+                        :
                         ((props.estimatedTime !== null
-                        ? `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`
-                        : 'За розкладом' ))
+                            ? `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`
+                            : 'За розкладом'))
                 }
             </td>
         </tr>

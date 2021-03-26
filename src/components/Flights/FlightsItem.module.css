@@ -4,7 +4,7 @@ tr > td {
     padding-right: 20px;
     text-align: left;
     color: white;
-    font-size: 20px;
+    font-size: 19px;
     border-bottom: 1px solid gray;
 }
 
@@ -21,6 +21,19 @@ tr > td {
     display: inline-block;
     color: #FFDB00;
     border: 1px solid #FFDB00 ;
+    border-radius: 50%;
+    width: 30px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.terminal_f {
+    display: inline-block;
+    color: #63c745;
+    border: 1px solid #63c745 ;
     border-radius: 50%;
     width: 30px;
     height: 35px;
