@@ -28,10 +28,16 @@ export type ArrivalType = {
     scheduledTime: string
     terminal: string
     estimatedTime:string
+    iataCode: string
+
 }
 
 export type DepartureType = {
     iataCode: string
+    gate: string
+    estimatedTime: string
+    scheduledTime: string
+    terminal: string
 }
 
 export type FlightType = {

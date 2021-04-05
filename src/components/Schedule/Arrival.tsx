@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Schedule.module.css'
-import {AirlineType, AirportType, API_KEY, ArrivalFlightType, CitiesType, } from "../../types/types";
+import {AirlineType, AirportType, API_KEY, ArrivalFlightType, CitiesType,} from "../../types/types";
 import {FlightsItem} from "../Flights/FlightsItem";
 import axios from "axios";
 import arrivalIcon from '../../assets/arrival_yellow.svg'
@@ -16,13 +16,13 @@ type ScheduleProps = {
 };
 
 
-export const Arrival: React.FC<ScheduleProps> = ({cities,airports,airlines}) => {
+export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) => {
     const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
+    let now = moment().format('YYYY-MM-DDTHH:mm:ss')
 
     useEffect(() => {
-        let now = moment().format('YYYY-MM-DDTHH:mm:ss')
-        axios.get(` http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival`)
+        axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival`)
             .then(({data}) => {
                 setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)).slice(0, 25))
             })
@@ -44,19 +44,16 @@ export const Arrival: React.FC<ScheduleProps> = ({cities,airports,airlines}) => 
                     flights.map((flight, i) => {
                             let airport = airports.find(a => a.codeIataAirport === flight.departure.iataCode)
                             // @ts-ignore
-                            let city2 = cities.find(c => c.codeIataCity === airport.codeIataCity)
-                            let city = cities.find(c => c.codeIataCity === flight.departure.iataCode)
+                            let city = cities.find(c => c.codeIataCity === airport.codeIataCity)
                             let airline = airlines.find(a => a.codeIataAirline === flight.airline.iataCode)
                             return (
                                 <FlightsItem key={i}
-                                             city={city2}
+                                             city={city}
                                              airline={airline}
                                              switchLang={switchLang}
-                                             carrier={flight.airline.name}
                                              flightNum={flight.flight.iataNumber}
                                              status={flight.status}
                                              scheduledTime={flight.arrival.scheduledTime}
-                                             destination={flight.departure.iataCode}
                                              terminal={flight.arrival.terminal}
                                              estimatedTime={flight.arrival.estimatedTime}/>
                             )

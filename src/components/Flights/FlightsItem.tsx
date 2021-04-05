@@ -4,13 +4,12 @@ import moment from "moment";
 import {AirlineType, CitiesType} from "../../types/types";
 
 type Props = {
-    carrier: string
     flightNum: string
     switchLang: boolean
     status: string
+    gate?:string
     estimatedTime: string
     scheduledTime: string
-    destination: string
     terminal: string
     city: CitiesType | undefined
     airline: AirlineType | undefined
@@ -33,8 +32,10 @@ export const FlightsItem: React.FC<Props> = (props) => {
             <td>{moment(props.scheduledTime).format('HH:mm')}</td>
             <td style={{color: '#FFDB00'}}>{props.city?.nameCity}</td>
             <td>{props.airline?.nameAirline}</td>
-            <td><span className={props.terminal === 'F' ? styles.terminal_f : styles.terminal}>{props.terminal}</span>
-            </td>
+            <td><span className={props.terminal === 'F' ? styles.terminal_f : styles.terminal}>{props.terminal}</span></td>
+            {/*{*/}
+            {/*    props.gate && <td>{props.gate}</td>*/}
+            {/*}*/}
             <td className={classForItem}>
                 {
                     props.switchLang

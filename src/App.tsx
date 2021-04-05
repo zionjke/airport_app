@@ -24,7 +24,7 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <Route path='/' render={() => <Arrival cities={cities}
+            <Route path='/arrival' render={() => <Arrival cities={cities}
                                                    airlines={airlines}
                                                    airports={airports}/>}/>
             <Route path='/departure' render={() => <Departure cities={cities}
