@@ -47,6 +47,7 @@ export type FlightType = {
 export type CitiesType = {
     codeIataCity: string
     nameCity: string
+    codeIso2Country:string
     translations: {
         city:{
             ukrainian:string

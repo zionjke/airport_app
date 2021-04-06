@@ -20,7 +20,7 @@ export const Departure: React.FC<Props> = ({cities, airlines, airports}) => {
     console.log(now)
     useEffect(() => {
         axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=departure`)
-            .then(({data}) => setFLights(data.filter((item: { departure: { scheduledTime: string; }; }) => item.departure.scheduledTime >= now)))
+            .then(({data}) => setFLights(data.filter((item: { departure: { scheduledTime: string; }; }) => item.departure.scheduledTime >= now).slice(0,25)))
 
         const intervalId = setInterval(() => {
             setSwitchLang(!switchLang)
