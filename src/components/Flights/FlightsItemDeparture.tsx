@@ -7,14 +7,14 @@ type Props = {
     flightNum: string
     switchLang: boolean
     status: string
-    gate?:string
+    gate: string
     estimatedTime: string
     scheduledTime: string
     terminal: string
     city: CitiesType | undefined
     airline: AirlineType | undefined
 };
-export const FlightsItem: React.FC<Props> = (props) => {
+export const FlightsItemDeparture: React.FC<Props> = (props) => {
     let classForItem = '';
 
     if (props.status === 'прибув') {
@@ -26,27 +26,30 @@ export const FlightsItem: React.FC<Props> = (props) => {
     }
 
 
+
     return (
         <tr>
             <td>{props.flightNum}</td>
             <td>{moment(props.scheduledTime).format('HH:mm')}</td>
             <td style={{color: '#FFDB00'}}>{props.city?.nameCity}</td>
             <td>{props.airline?.nameAirline}</td>
-            <td><span className={props.terminal === 'F' ? styles.terminal_f : styles.terminal}>{props.terminal}</span></td>
-            {/*{*/}
-            {/*    props.gate && <td>{props.gate}</td>*/}
-            {/*}*/}
+            <td>
+                <span className={props.terminal === 'F' ? styles.terminal_f : styles.terminal}>{props.terminal}</span>
+            </td>
+            {
+                props.gate === null ? <td>?</td> : <td>{props.gate}</td>
+            }
             <td className={classForItem}>
                 {
                     props.switchLang
                         ?
-                        (props.estimatedTime !== null
-                            ? `Expected at ${moment(props.estimatedTime).format('HH:mm')}`
-                            : props.status)
+                        (props.scheduledTime
+                            ? `Sheduled`
+                            : `Expected at ${moment(props.estimatedTime).format('HH:mm')}`)
                         :
-                        ((props.estimatedTime !== null
-                            ? `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`
-                            : 'За розкладом'))
+                        ((props.scheduledTime
+                            ? 'За розкладом'
+                            : `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`))
                 }
             </td>
         </tr>
