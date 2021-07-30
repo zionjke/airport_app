@@ -5,8 +5,10 @@ tr > td {
     text-align: left;
     color: white;
     font-size: 19px;
+    font-weight: bold;
     border-bottom: 1px solid gray;
 }
+
 
 
 .arrived {
