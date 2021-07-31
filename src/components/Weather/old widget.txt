@@ -1,0 +1,13 @@
+ <div className={styles.widget}>
+        <div className={styles.temp}>
+            {temperature}<span>&#8451;</span>
+            <img className={styles.icon} src={iconUrl} alt="Weather Icon"/>
+        </div>
+        <div className={styles.date}>
+            {
+                switchLang
+                    ?  moment().locale("en-GB").format('MMMM Do YYYY, h:mm a')
+                    : moment().locale("uk").format('MMMM Do YYYY, HH:mm ')
+            }
+        </div>
+    </div>

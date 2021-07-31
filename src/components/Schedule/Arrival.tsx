@@ -21,7 +21,7 @@ export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) =
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
     let now = moment().format('YYYY-MM-DDTHH:mm:ss.SSS')
     useEffect(() => {
-        axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=arrival`)
+        axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&arr_terminal=D&type=arrival`)
             .then(({data}) => {
                 setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)).slice(0, 25))
             })

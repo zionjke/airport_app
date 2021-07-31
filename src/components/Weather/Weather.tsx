@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Weather.module.css'
+import boryspolIcon from '../../assets/boryspil.png'
 import {WeatherType} from "../../types/types";
 import axios from "axios";
 import moment from "moment";
 import 'moment/locale/uk'
 import 'moment/locale/en-gb'
 import 'moment-timezone';
-
-
-
 
 
 const APP_KEY = '18ca32c19c644d60dbf768c4dbde0f90'
@@ -49,17 +47,26 @@ export const Weather: React.FC<Props> = (props) => {
 
     return (
         <div className={styles.widget}>
-                <div className={styles.temp}>
-                    {temperature}<span>&#8451;</span>
-                    <img className={styles.icon} src={iconUrl} alt="Weather Icon"/>
+            <div className={`${styles.leftPanel} ${styles.panel}`}>
+                <div className={styles.date}>
+                    {
+                        switchLang
+                            ?  moment().locale("en-GB").format('MMMM Do YYYY, h:mm a')
+                            : moment().locale("uk").format('MMMM Do YYYY, HH:mm ')
+                    }
                 </div>
-            <div className={styles.date}>
-                {
-                  switchLang
-                      ?  moment().locale("en-GB").format('MMMM Do YYYY, h:mm a')
-                      : moment().locale("uk").format('MMMM Do YYYY, HH:mm ')
-                }
+                <div className={styles.city}>
+                    {switchLang ? 'Boryspil' : 'Бориспіль'}
+                </div>
+                <div className={styles.temp}>
+                    <img src={iconUrl} alt="" width="60"/>
+                    {temperature}&deg;
+                </div>
+            </div>
+            <div className={`${styles.rightPanel} ${styles.panel}`}>
+                <img src={boryspolIcon} alt="" />
             </div>
         </div>
-    );
+    )
 };
+
