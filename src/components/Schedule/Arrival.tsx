@@ -19,11 +19,12 @@ type ScheduleProps = {
 export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) => {
     const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
-    let now = moment().format('YYYY-MM-DDTHH:mm:ss.SSS')
+    let now = moment().subtract('1', "minutes").format('YYYY-MM-DDTHH:mm:ss.SSS')
     useEffect(() => {
         axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&arr_terminal=D&type=arrival`)
             .then(({data}) => {
-                setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)).slice(0, 25))
+
+                setFLights(data.filter((item: { arrival: { scheduledTime: string; }; }) => (item.arrival.scheduledTime >= now)))
             })
         const intervalId = setInterval(() => {
             setSwitchLang(!switchLang)
@@ -33,10 +34,10 @@ export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) =
 
     }, [switchLang])
 
-
+    console.log(flights)
     return (
         <>
-            <TableTitle icon={arrivalIcon} title={switchLang ? 'Arrival' : 'Приліт'}/>
+            <TableTitle icon={arrivalIcon} title={switchLang ? 'ARRIVAL' : 'ПРИЛІТ'}/>
             <table className={styles.shedule}>
                 <TableHead switchLang={switchLang}/>
                 {
