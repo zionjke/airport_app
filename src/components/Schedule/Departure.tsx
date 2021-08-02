@@ -16,11 +16,12 @@ type Props = {
 export const Departure: React.FC<Props> = ({cities, airlines, airports}) => {
     const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
+
     let now = moment().format('YYYY-MM-DDTHH:mm:ss.SSS')
-    console.log(now)
+
     useEffect(() => {
-        axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&type=departure`)
-            .then(({data}) => setFLights(data.filter((item: { departure: { scheduledTime: string; }; }) => item.departure.scheduledTime >= now).slice(0,25)))
+        axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&dep_terminal=D&type=departure`)
+            .then(({data}) => setFLights(data.filter((item: { departure: { scheduledTime: string; }; }) => item.departure.scheduledTime >= now).slice(0, 25)))
 
         const intervalId = setInterval(() => {
             setSwitchLang(!switchLang)
@@ -29,7 +30,7 @@ export const Departure: React.FC<Props> = ({cities, airlines, airports}) => {
         return () => clearInterval(intervalId)
     }, [])
 
-    console.log(flights)
+
 
     return (
         <>

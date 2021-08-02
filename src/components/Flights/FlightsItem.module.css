@@ -1,3 +1,4 @@
+
 tr > td {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -6,7 +7,7 @@ tr > td {
     color: white;
     font-size: 19px;
     font-weight: bold;
-    border-top: 2px solid white;;
+    border-top: 1px solid white;
 }
 
 

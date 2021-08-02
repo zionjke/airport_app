@@ -16,13 +16,13 @@ type Props = {
 export const FlightsItemArrival: React.FC<Props> = (props) => {
     let classForItem = '';
 
-    if (props.status === 'прибув') {
-        classForItem = styles.arrived
-    } else if (props.status === 'затримка') {
-        classForItem = styles.determinate
-    } else {
-        classForItem = ''
-    }
+    // if (props.status === 'прибув') {
+    //     classForItem = styles.arrived
+    // } else if (props.status === 'затримка') {
+    //     classForItem = styles.determinate
+    // } else {
+    //     classForItem = ''
+    // }
 
     let cityName: string | undefined;
     switch (props.city?.nameCity) {
