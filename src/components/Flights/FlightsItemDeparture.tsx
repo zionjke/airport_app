@@ -7,7 +7,6 @@ type Props = {
     flightNum: string
     switchLang: boolean
     status: string
-    gate: string
     estimatedTime: string
     scheduledTime: string
     terminal: string
@@ -15,15 +14,6 @@ type Props = {
     airline: AirlineType | undefined
 };
 export const FlightsItemDeparture: React.FC<Props> = (props) => {
-    let classForItem = '';
-
-    if (props.status === 'прибув') {
-        classForItem = styles.arrived
-    } else if (props.status === 'затримка') {
-        classForItem = styles.determinate
-    } else {
-        classForItem = ''
-    }
 
     let cityName: string | undefined;
     switch (props.city?.nameCity) {
@@ -74,20 +64,17 @@ export const FlightsItemDeparture: React.FC<Props> = (props) => {
             <td>
                 <span className={props.terminal === 'F' ? styles.terminal_f : styles.terminal}>{props.terminal}</span>
             </td>
-            {
-                props.gate === null ? <td>?</td> : <td>{props.gate}</td>
-            }
-            <td className={classForItem}>
+            <td>
                 {
                     props.switchLang
                         ?
-                        (props.scheduledTime
-                            ? `Sheduled`
-                            : `Expected at ${moment(props.estimatedTime).format('HH:mm')}`)
+                        (props.estimatedTime !== props.scheduledTime && props.estimatedTime !== null
+                            ? `Expected at ${moment(props.estimatedTime).format('HH:mm')}`
+                            : 'Sheduled')
                         :
-                        ((props.scheduledTime
-                            ? 'За розкладом'
-                            : `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`))
+                        ((props.estimatedTime !== props.scheduledTime && props.estimatedTime !== null
+                            ? `Очiкується о ${moment(props.estimatedTime).format('HH:mm')}`
+                            : 'За розкладом'))
                 }
             </td>
         </tr>

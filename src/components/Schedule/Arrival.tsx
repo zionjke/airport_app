@@ -44,9 +44,7 @@ export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) =
 
         return () => clearInterval(intervalId)
 
-    }, [switchLang,startIndex,count])
-
-    console.log(startIndex)
+    }, [switchLang])
 
 
 
