@@ -27,6 +27,8 @@ export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) =
     let filteredFlights = flights.filter(flight => flight.arrival.scheduledTime >= now).slice(0,46)
     let startIndex = (count - 1) * FLIGHT_PER_PAGE
     let selectedFlights = filteredFlights.slice(startIndex, startIndex + FLIGHT_PER_PAGE)
+    console.log(startIndex)
+
 
     useEffect(() => {
         axios.get(`http://aviation-edge.com/v2/public/timetable?key=${API_KEY}&iataCode=KBP&arr_terminal=D&type=arrival`)
@@ -34,10 +36,12 @@ export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) =
                 setFLights(data)
             })
         const intervalId = setInterval(() => {
-            if(startIndex === FLIGHT_PER_PAGE) {
-                setCount(1)
-            } else {
-                setCount(count + 1)
+            if(filteredFlights.length > 23) {
+                if(startIndex === FLIGHT_PER_PAGE) {
+                    setCount(1)
+                } else {
+                    setCount(count + 1)
+                }
             }
             setSwitchLang(!switchLang)
         }, 60000)

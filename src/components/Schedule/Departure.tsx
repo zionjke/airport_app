@@ -31,10 +31,12 @@ export const Departure: React.FC<Props> = ({cities, airlines, airports}) => {
             .then(({data}) => setFLights(data))
 
         const intervalId = setInterval(() => {
-            if(startIndex === FLIGHT_PER_PAGE) {
-                setCount(1)
-            } else {
-                setCount(count + 1)
+            if(filteredFlights.length > 23) {
+                if(startIndex === FLIGHT_PER_PAGE) {
+                    setCount(1)
+                } else {
+                    setCount(count + 1)
+                }
             }
             setSwitchLang(!switchLang)
         }, 60000)
