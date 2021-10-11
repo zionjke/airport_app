@@ -20,14 +20,15 @@ export const Arrival: React.FC<ScheduleProps> = ({cities, airports, airlines}) =
     const [switchLang, setSwitchLang] = useState<boolean>(false)
     const [flights, setFLights] = useState<Array<ArrivalFlightType>>([])
     const [count, setCount] = useState<number>(1)
-
     let now = moment().subtract('1', "minutes").format('YYYY-MM-DDTHH:mm:ss.SSS')
+
 
     let FLIGHT_PER_PAGE = 23;
     let filteredFlights = flights.filter(flight => flight.arrival.scheduledTime >= now).slice(0,46)
     let startIndex = (count - 1) * FLIGHT_PER_PAGE
     let selectedFlights = filteredFlights.slice(startIndex, startIndex + FLIGHT_PER_PAGE)
-    console.log(startIndex)
+
+
 
 
     useEffect(() => {
